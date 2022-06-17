@@ -1,0 +1,216 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Counter One',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: '选购商品'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+  int counter2 = 0;
+  int counter3 = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  void _incrementCounter2() {
+    setState(() {
+      counter2++;
+    });
+  }  void _incrementCounter3() {
+    setState(() {
+      counter3++;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+        title: Text(widget.title),
+      ),
+      body: ListView(
+        children:[ Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "欢迎来到XX笔电商城！",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Image(
+                    image: NetworkImage("https://2a.zol-img.com.cn/product/211/690/celRclYRxEf6.jpg"),
+                  width: 300,
+                ),
+                ]
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.add_to_queue,size: 20,),
+                  const Text(
+                    '购买数量:',
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    '$_counter',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                          color: Colors.grey,
+                          padding: EdgeInsets.all(1.0),
+                          onPressed: _incrementCounter,
+                          icon: Icon(Icons.add,size: 25,),
+                        ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Image(
+                      image: NetworkImage("https://img1.baidu.com/it/u=2908815757,1671336934&fm=253&fmt=auto&app=138&f=JPEG?w=730&h=500"),
+                      width: 300,
+                    ),
+                  ]
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.add_to_queue,size: 20,),
+                  const Text(
+                    '购买数量:',
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    '$counter2',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.grey,
+                        padding: EdgeInsets.all(1.0),
+                        onPressed: _incrementCounter2,
+                        icon: Icon(Icons.add,size: 25,),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Image(
+                      image: NetworkImage("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp7.itc.cn%2Fimages01%2F20210502%2F7c066eb20b58469fa8c08a1bfdd04343.jpeg&refer=http%3A%2F%2Fp7.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658044200&t=579704eb20d7a1235c9b5d8bcdc2fdb1"),
+                      width: 300,
+                    ),
+                  ]
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.add_to_queue,size: 20,),
+                  const Text(
+                    '购买数量:',
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    '$counter3',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.grey,
+                        padding: EdgeInsets.all(1.0),
+                        onPressed: _incrementCounter3,
+                        icon: Icon(Icons.add,size: 25,),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.whatshot,size: 35,color: Colors.blue,),
+                  TextButton(onPressed: ()=>{},
+                      child: Text(
+                        "提交订单",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.blue,
+                        ),
+                      )
+                  )
+                ],
+              )
+            ],
+          ),
+        ]
+      ),
+      );
+  }
+}
