@@ -1,0 +1,396 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Counter One',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: '选购商品'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+  int counter2 = 0;
+  int counter3 = 0;
+  Color nowcolor = Colors.blue;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  void _incrementCounter2() {
+    setState(() {
+      counter2++;
+    });
+  }  void _incrementCounter3() {
+    setState(() {
+      counter3++;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+        title: Text(widget.title),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: nowcolor,width: 5,style: BorderStyle.solid),
+        ),
+        child: ListView(
+          children:[ Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.widgets_outlined,color: nowcolor,size: 35,),
+                    Text(
+                      "欢迎来到BujangWood笔电商城！",
+                      style: TextStyle(
+                        color: nowcolor,
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.search,color: nowcolor,size: 20,),
+                    Text(
+                      "商品搜索栏：",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: nowcolor,
+                      ),
+                    )
+                  ],
+                ),
+                TextField(decoration: InputDecoration(
+                  labelText: "输入您想要搜寻的产品",
+                  labelStyle: TextStyle(
+                    fontSize: 15,
+                    color: nowcolor,
+                  ),
+                  helperText: "海量笔电，等您选购！",
+                  helperStyle: TextStyle(
+                    color: nowcolor,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white70,
+                  border: OutlineInputBorder(
+                  ),
+                ),
+                  maxLines: 1,
+                ),
+                Row(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.color_lens_outlined,color: nowcolor,size: 20,),
+                        Text(
+                          "  商城主题颜色 ",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: nowcolor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: OutlinedButton(
+                          onPressed: (){
+                            setState(() {
+                              nowcolor = Colors.blue;
+                            });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                          ),
+                          child: Text(
+                            "",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),Container(
+                      height: 20,
+                      width: 20,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: OutlinedButton(
+                          onPressed: (){
+                            setState(() {
+                              nowcolor = Colors.purple;
+                            });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.purple),
+                          ),
+                          child: Text(
+                            "",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: OutlinedButton(
+                            onPressed: (){
+                              setState(() {
+                                nowcolor = Colors.red;
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.red),
+                            ),
+                            child: Text(
+                              "",
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                              ),
+                            )
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 20,
+                      height: 20,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: OutlinedButton(
+                            onPressed: (){
+                              setState(() {
+                                nowcolor = Colors.green;
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.green),
+                            ),
+                            child: Text(
+                              "",
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                              ),
+                            )
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: OutlinedButton(
+                          onPressed: (){
+                            setState(() {
+                              nowcolor = Colors.orange;
+                            });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.orange),
+                          ),
+                          child: Text(
+                            "",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+          ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Image(
+                      image: NetworkImage("https://2a.zol-img.com.cn/product/211/690/celRclYRxEf6.jpg"),
+                    width: 300,
+                  ),
+                  ]
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.add_to_queue,size: 20,color: nowcolor,),
+                    Text(
+                      '购买数量:',
+                      style: TextStyle(
+                        color: nowcolor,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Text(
+                      '$_counter',
+                      style: TextStyle(
+                        color: nowcolor,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: IconButton(
+                            color: nowcolor,
+                            padding: EdgeInsets.all(1.0),
+                            onPressed: _incrementCounter,
+                            icon: Icon(Icons.add,size: 25,color: nowcolor,),
+                          ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:[
+                      Image(
+                        image: NetworkImage("https://img1.baidu.com/it/u=2908815757,1671336934&fm=253&fmt=auto&app=138&f=JPEG?w=730&h=500"),
+                        width: 300,
+                      ),
+                    ]
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.add_to_queue,size: 20,color: nowcolor,),
+                    Text(
+                      '购买数量:',
+                      style: TextStyle(
+                        color: nowcolor,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Text(
+                      '$counter2',
+                      style: TextStyle(
+                        color:nowcolor,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: IconButton(
+                          color: Colors.grey,
+                          padding: EdgeInsets.all(1.0),
+                          onPressed: _incrementCounter2,
+                          icon: Icon(Icons.add,size: 25,color: nowcolor,),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:[
+                      Image(
+                        image: NetworkImage("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp7.itc.cn%2Fimages01%2F20210502%2F7c066eb20b58469fa8c08a1bfdd04343.jpeg&refer=http%3A%2F%2Fp7.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658044200&t=579704eb20d7a1235c9b5d8bcdc2fdb1"),
+                        width: 300,
+                      ),
+                    ]
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.add_to_queue,size: 20,color: nowcolor,),
+                    Text(
+                      '购买数量:',
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        color: nowcolor,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Text(
+                      '$counter3',
+                      style: TextStyle(
+                        color: nowcolor,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: IconButton(
+                          color: Colors.grey,
+                          padding: EdgeInsets.all(1.0),
+                          onPressed: _incrementCounter3,
+                          icon: Icon(Icons.add,size: 25,color: nowcolor,),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.whatshot,size: 35,color: nowcolor,),
+                    TextButton(onPressed: ()=>{},
+                        child: Text(
+                          "提交订单",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: nowcolor,
+                          ),
+                        )
+                    )
+                  ],
+                )
+              ],
+            ),
+      ),
+      );
+  }
+}
